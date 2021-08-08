@@ -29,6 +29,10 @@
                             <td>{{ $data['seller']['phone'] }}</td>
                         </tr>
                         <tr>
+                            <td class="label-table" > {{ __('messages.email') }}</td>
+                            <td>{{ $data['seller']['email'] }}</td>
+                        </tr>
+                        <tr>
                             <td class="label-table" > {{ __('messages.shop_name') }}</td>
                             <td>{{ $data['seller']['shop'] }}</td>
                         </tr> 

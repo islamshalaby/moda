@@ -10,6 +10,7 @@ class Seller extends Model
         'name',
         'shop',
         'phone',
+        'email',
         'id_number',
         'instagram',
         'bank_name',

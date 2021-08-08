@@ -24,7 +24,7 @@ class ShopController extends AdminController{
     public function AddPost(Request $request) {
         $post = $request->all();
         $request->validate([
-            'email' => 'required|unique:shops,email',
+            // 'email' => 'required|unique:shops,email',
             'password' => 'required',
             'seller_id' => 'required|unique:shops,seller_id'
         ]);
@@ -47,7 +47,9 @@ class ShopController extends AdminController{
             $cover_new_name = $cover_id.'.'.$cover_format;
             $post['cover'] = $cover_new_name;
         }
-        $seller = Seller::select('shop')->where('id', $request->seller_id)->first();
+        $seller = Seller::select('shop', 'email')->where('id', $request->seller_id)->first();
+        // dd($seller);
+        $post['email'] = $seller->email;
         $post['name'] = $seller['shop'];
         $post['logo'] = $image_new_name;
         $post['password'] = Hash::make($request->password);

@@ -37,7 +37,8 @@ class SettingController extends Controller
             'instagram' => 'required|unique:sellers,instagram',
             'account_number' => 'required|unique:sellers,account_number',
             'front_image' => 'required',
-            'back_image' => 'required'
+            'back_image' => 'required',
+            'email' => 'required|email|unique:sellers,email'
         ]);
 
         if ($validator->fails()) {
@@ -48,10 +49,9 @@ class SettingController extends Controller
         $image = $request->front_image;  // your base64 encoded
         $image = str_replace('data:image/png;base64,', '', $image);
         $image = str_replace(' ', '+', $image);
-        // dd($image);
         $front_image = $request->front_image;
         Cloudder::upload($front_image, null);
-        // $front_image_name = $front_image->getRealPath();
+        
         $front_imageereturned = Cloudder::getResult();
         $front_image_id = $front_imageereturned['public_id'];
         $front_image_format = $front_imageereturned['format'];    

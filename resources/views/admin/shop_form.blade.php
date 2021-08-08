@@ -49,10 +49,10 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group mb-4">
+            {{-- <div class="form-group mb-4">
                 <label for="email">{{ __('messages.email') }}</label>
-                <input required type="text" name="email" class="form-control" id="email" placeholder="{{ __('messages.email') }}" value="" >
-            </div>
+                <input required type="text" name="email" class="form-control" id="email" placeholder="{{ __('messages.email') }}" value="{{  }}" >
+            </div> --}}
             <div class="form-group mb-4">
                 <label for="password">{{ __('messages.password') }}</label>
                 <input required type="password" class="form-control" id="password" name="password" placeholder="{{ __('messages.password') }}" value="" >
